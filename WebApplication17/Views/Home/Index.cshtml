@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <base href="/" />
+    <title>TEST APP</title>
+    @Scripts.Render("~/bundles/app")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.4.0/js/ngDialog.min.js"></script>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="#!Items">Items</a>
+            <a href="#!ItemsStatistics">Items Statistic</a>
+        </nav>
+        <ng-view></ng-view>
+       
+    </div>
+    
+</body>
+</html>
