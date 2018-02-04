@@ -1,0 +1,23 @@
+﻿<section>
+    <h1>Items Statistics</h1>
+
+    <div style="max-width:800px" class="itemsStatistics-container">
+        <table class="table" border="1">
+            <thead class="table-items-thead">
+                <tr>
+                    <td>Type</td>
+                    <td>Count</td>
+                </tr>
+            </thead>
+            <tr class="active" ng-repeat="x in itemsStats">
+                <td>{{x.Type}}</td>
+                <td>{{x.Count}}</td>
+            </tr>
+        </table>
+        <div class="pagination-wrap">
+            <ul class="pagination">
+                <li ng-click="showPage(page.link)" ng-class="{'active':currentPageNum()==page.link}" class="page-item" ng-repeat="page in paginationList"><a class="page-link" ng-bind-html="page.name"></a></li>
+            </ul>
+        </div>
+    </div>
+</section>

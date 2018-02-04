@@ -1,0 +1,55 @@
+﻿<section>
+    <h1>Items</h1>
+    <div class="add-item-cont">
+        <h6>
+            add new item
+        </h6>
+        <div class="add-item">
+            <form name="addItemForm">
+                <div class="form-group-items">
+                    <input ng-minlength="3" placeholder="Item name.." type="text" name="ItemName" ng-model="itemName" class="add-item-inputName" required />
+                    <br />
+                    <span ng-show="addItemForm.ItemName.$touched && addItemForm.ItemName.$invalid">The name is required.</span>
+                </div>
+                <div class="form-group-items">
+                    <input ng-minlength="3" placeholder="Item type.." type="text" name="ItemType" ng-model="itemType" class="add-item-inputType" required />
+                        <br />
+                    <span ng-show="addItemForm.ItemType.$touched && addItemForm.ItemType.$invalid">The type is required.</span>
+                </div>
+                <button ng-disabled="!addItemForm.ItemName.$valid||!addItemForm.ItemType.$valid" class="addItemButton" ng-click="addItem()">Add</button>
+            </form>
+        </div>
+    </div>
+    <div class="items-container">
+        <div class="items-container-table">
+            <table class="table" border="1">
+                <thead>
+                    <tr class="table-items-thead">
+                        <td class="table-items-itemName">
+                            Item Name
+                        </td>
+                        <td  class="table-items-itemType">
+                            Item Type
+                        </td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tr class="active" ng-repeat="x in items">
+                    <td>{{x.Name}}</td>
+                    <td>{{x.Type}}</td>
+                    <td>
+                        <button ng-click="EditItem(x)">Edit</button>
+                        <button ng-click="DeleteItem(x.Id)">Delete</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div  class="pagination-wrap">
+            <ul  class="pagination">
+                <li ng-click="showPage(page.link)" ng-class="{'active':currentPageNum()==page.link}" class="page-item" ng-repeat="page in paginationList"><a class="page-link" ng-bind-html="page.name"></a></li>
+            </ul>
+        </div>
+    </div>
+    
+</section>
